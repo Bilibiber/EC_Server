@@ -46,7 +46,7 @@ router.post('/login', async (req, res) => {
 
   //Token
   const token = JWT.sign({id: user._id, name: user.name}, process.env.token_salt, {
-    expiresIn: 60 * 5
+    expiresIn: 60 * 15
   });
   res.cookie('auth_token', token, {httpOnly: true}).send('Saved');
 });
